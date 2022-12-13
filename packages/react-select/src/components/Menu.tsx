@@ -440,9 +440,12 @@ export const MenuList = <
 >(
   props: MenuListProps<Option, IsMulti, Group>
 ) => {
-  const { children, innerProps, innerRef, isMulti } = props;
+  const { children, innerProps, innerRef, isMulti, htmlTag = 'div' } = props;
+
+  const Tag = htmlTag;
+
   return (
-    <div
+    <Tag
       {...getStyleProps(props, 'menuList', {
         'menu-list': true,
         'menu-list--is-multi': isMulti,
@@ -451,7 +454,7 @@ export const MenuList = <
       {...innerProps}
     >
       {children}
-    </div>
+    </Tag>
   );
 };
 

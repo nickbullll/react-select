@@ -87,10 +87,13 @@ const Option = <
 >(
   props: OptionProps<Option, IsMulti, Group>
 ) => {
-  const { children, isDisabled, isFocused, isSelected, innerRef, innerProps } =
+  const { children, isDisabled, isFocused, isSelected, innerRef, innerProps, htmlTag = 'div' } =
     props;
+
+    const Tag = htmlTag;
+
   return (
-    <div
+    <Tag
       {...getStyleProps(props, 'option', {
         option: true,
         'option--is-disabled': isDisabled,
@@ -102,7 +105,7 @@ const Option = <
       {...innerProps}
     >
       {children}
-    </div>
+    </Tag>
   );
 };
 
